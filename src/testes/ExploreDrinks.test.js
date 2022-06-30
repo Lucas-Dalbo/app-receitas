@@ -52,10 +52,6 @@ describe('Testa a página Explore Drinks', () => {
     userEvent.click(surpriseMeButton);
     expect(fetch).toBeCalledWith(URL);
 
-    setTimeout(() => {
-      expect(history.location.pathname).toMatch('/drinks/17120');
-    });
-
     fetch.mockRestore();
   });
 
