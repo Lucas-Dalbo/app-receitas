@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
@@ -118,13 +118,12 @@ describe('Testes da página FavoriteRecipes', () => {
       expect(copiar).toBeCalledWith('http://localhost:3000/foods/52977');
       expect(screen.getByText(/link copied!/i)).toBeInTheDocument();
 
-      const WAIT_MSG = 3500;
-      setTimeout(() => {
-        expect(screen.getByText(/link copied!/i)).not.toBeInTheDocument();
-      }, WAIT_MSG);
+      await waitForElementToBeRemoved(() => screen.queryByText(/link copied!/i));
+      expect(screen.queryByText(/link copied!/i)).not.toBeInTheDocument();
 
       userEvent.click(shareBTNQuant[1]);
       expect(copiar).toBeCalledWith('http://localhost:3000/drinks/15997');
+      expect(screen.getByText(/link copied!/i)).toBeInTheDocument();
 
       copiar.mockRestore();
       localStorage.clear();
