@@ -18,7 +18,6 @@ function ExploreFoods() {
   const handleSurpriseBtn = async () => {
     const URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
     const randomFood = await requestAPI(URL);
-    console.log(randomFood);
     history.push(`/foods/${randomFood[0].idMeal}`);
   };
 

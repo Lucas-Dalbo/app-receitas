@@ -3,6 +3,9 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../App';
 import renderWithRouter from './helpers/renderWithRouter';
+import mockRandomFood from './helpers/mockRandomFood';
+import { mockFoodRecipe } from './helpers/mockFoodResults';
+import mockNationalities from './helpers/mockNationalities';
 
 const path = '/explore/foods';
 
@@ -53,10 +56,54 @@ describe('Testa a página Explore Foods', () => {
     const { history } = renderWithRouter(<App />);
     history.push(path);
 
+    const fetch = jest.spyOn(global, 'fetch');
+    fetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValue(mockRandomFood),
+    });
+
     const surpriseMeButton = screen.getByRole('button', {
       name: /surprise me/i,
     });
     userEvent.click(surpriseMeButton);
-    expect(history.location.pathname).toMatch(/foods/);
+    expect(fetch).toBeCalledWith('https://www.themealdb.com/api/json/v1/1/random.php');
+
+    const recipeName = await screen.findByRole('heading',
+      { name: /stovetop eggplant with harissa, chickpeas, and cumin yogurt/i });
+    expect(recipeName).toBeDefined();
+
+    fetch.mockRestore();
+  });
+
+  test('A pagina de nacionalidades exibe o select e as receitas', async () => {
+    const { history } = renderWithRouter(<App />);
+    history.push(path);
+
+    const fetch = jest.spyOn(global, 'fetch');
+    fetch.mockResolvedValueOnce(({
+      json: jest.fn().mockResolvedValue(mockFoodRecipe),
+    }))
+      .mockResolvedValueOnce({
+        json: jest.fn().mockResolvedValue(mockNationalities),
+      });
+
+    const byNationalityButton = screen.getByRole('button', {
+      name: /by nationality/i,
+    });
+    userEvent.click(byNationalityButton);
+
+    const selector = await screen.findByRole('combobox');
+    expect(selector).toBeDefined();
+
+    const options = await screen.findAllByRole('option');
+    console.log(options);
+    expect(options.length).toEqual(mockNationalities.meals.length + 1);
+
+    // Não consegui fazer o teste selecionar as opções do dropdown.
+    // userEvent.selectOptions(
+    //   selector,
+    //   await screen.findByRole('option', { name: /american/i }),
+    // );
+    // const newRecipe = await screen.findByRole('heading', { name: /banana pancakes/i });
+    // expect(newRecipe).toBeDefined();
   });
 });
