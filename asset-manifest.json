@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/app-receitas/static/css/main.0728deb7.css",
+    "main.js": "/app-receitas/static/js/main.546d6000.js",
+    "static/media/exploreIcon.svg": "/app-receitas/static/media/exploreIcon.076346236f69318885d7f53b65f0e4c7.svg",
+    "static/media/mealIcon.svg": "/app-receitas/static/media/mealIcon.40029e7f1422ba5a1bf1c10fa4f59030.svg",
+    "static/media/shareIcon.svg": "/app-receitas/static/media/shareIcon.87def1bd1dff9af9263f046c3b9bd31a.svg",
+    "static/media/profileIcon.svg": "/app-receitas/static/media/profileIcon.44eb3608f431845fe2fc2d2a23d758ae.svg",
+    "static/media/whiteHeartIcon.svg": "/app-receitas/static/media/whiteHeartIcon.2b822118952dc5140129c6349fcd0472.svg",
+    "static/media/searchIcon.svg": "/app-receitas/static/media/searchIcon.7353564d025de989f86f66ecb0202a04.svg",
+    "static/media/blackHeartIcon.svg": "/app-receitas/static/media/blackHeartIcon.083cb006913d197c95857ebfa2161db7.svg",
+    "static/media/drinkIcon.svg": "/app-receitas/static/media/drinkIcon.efc0d3c156e5da73e44a826c8d67b142.svg",
+    "index.html": "/app-receitas/index.html",
+    "main.0728deb7.css.map": "/app-receitas/static/css/main.0728deb7.css.map",
+    "main.546d6000.js.map": "/app-receitas/static/js/main.546d6000.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0728deb7.css",
+    "static/js/main.546d6000.js"
+  ]
+}
