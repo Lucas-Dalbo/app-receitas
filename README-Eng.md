@@ -31,5 +31,5 @@ Installation and additional information can be found [here](https://github.com/b
 Below you can check out a demo of how it turned out!
 NOTE: When restarting the page anywhere other than the home page, an error will occur. This error comes from gh-pages itself.
 
-[Demo site!](https://lucas-dalbo.github.io/sw-planets-project)
+[Demo site!](https://lucas-dalbo.github.io/app-receitas/)
 

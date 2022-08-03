@@ -32,5 +32,5 @@ Abaixo você pode conferir uma demosntração de como ficou!
 
 OBS: Ao reiniciar a página em qualquer lugar que não seja a página inicial, ocorrerá um erro. Este erro provem do própio gh-pages.
 
-[Site de demonstração!](https://lucas-dalbo.github.io/sw-planets-project)
+[Site de demonstração!](https://lucas-dalbo.github.io/app-receitas/)
 
