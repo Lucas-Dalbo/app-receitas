@@ -1,5 +1,5 @@
 
-[Leia em Portugês!](./README.md)
+[Leia em Português!](./README.md)
 
 # Recipes App Project
 This was a group developed project while students at Trybe.
